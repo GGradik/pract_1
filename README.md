@@ -41,3 +41,15 @@ echo "$border"
 echo "| $message |"
 echo "$border"
 ```
+
+![Снимок экрана 2024-09-09 225353](https://github.com/user-attachments/assets/4727766e-ada3-49c1-9ca8-d4fffa402df9)
+
+## Объяснение
+if [ -z "$1"]; then... - если при вызове скрипта поле ввода пустое то мы выводим условия выполнения скрипта  
+message="$1" - присваивам аргументу название message  
+length=${#message} - вычисляем длину строки  
+border="+$(printf -- '-%.0s'(seq1((length + 2))))+" - Создание рамок  
+printF -- '-%.0s' - печать символа '-'  
+(seq1((length + 2))) - вывод символа '-' от 1 до length + 2  
+
+## Задача 4
