@@ -45,7 +45,7 @@ echo "$border"
 ![Снимок экрана 2024-09-09 225353](https://github.com/user-attachments/assets/4727766e-ada3-49c1-9ca8-d4fffa402df9)
 
 ## Объяснение
-#!/bin/bash
+```#!/bin/bash
 # Проверяем, был ли передан аргумент
 
 if [ $# -eq 0 ]; then
@@ -74,7 +74,7 @@ border="+$border+"
 
 echo "$border"
 
-echo "| $text |"
+echo "| $text |"```
 
 echo "$border"
 
