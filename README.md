@@ -13,10 +13,29 @@ sort — сортирует строки в алфавитном порядке.
 
 ## Задача 2
 
+`awk '{print $2, $1}' /etc/protocols | sort -k1,1nr | head -n 5`
+
 ![Снимок экрана 2024-09-09 223710](https://github.com/user-attachments/assets/6535b5d5-5095-4c36-be1a-e2279a68c594)
 
 
 ## Объяснение
 awk '{print $2, $1}' /etc/protocols: Эта команда извлекает второй столбец и первый столбец из файла /etc/protocols и выводит их в формате номер имя.  
 sort -k1,1nr: Сортирует вывод по первому столбцу численно и в обратном порядке.  
-head -n 5: Выводит только первые пять строк.
+head -n 5: Выводит только первые пять строк.  
+
+## Задача 3
+
+`if [ -z "$1" ]; then`
+    `echo "Usage: $0 \"Your message here\""`
+    `exit 1`
+`fi`
+
+`message="$1"`
+
+`length=${#message}`
+
+`border="+$(printf -- '-%.0s' $(seq 1 $((length + 2))))+"`
+
+`echo "$border"
+echo "| $message |"
+echo "$border"`
