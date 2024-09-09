@@ -26,56 +26,45 @@ head -n 5: Выводит только первые пять строк.
 ## Задача 3
 
 ```
-if [ -z "$1" ]; then
-    echo "Usage: $0 \"Your message here\""
+#!/bin/bash
+# Проверяем, был ли передан аргумент
+if [ $# -eq 0 ]; then
+    echo "Использование: $0 \"Ваш текст\""
     exit 1
 fi
-
-message="$1"
-
-length=${#message}
-
-border="+$(printf -- '-%.0s' $(seq 1 $((length + 2))))+"
-
+# Получаем текст из аргумента
+text="$1"
+# Вычисляем длину текста
+length=${#text}
+# Создаем верхнюю и нижнюю границы
+border=$(printf "%0.s-" $(seq 1 $((length + 2))))
+border="+$border+"
+# Выводим баннер
 echo "$border"
-echo "| $message |"
+echo "| $text |"
 echo "$border"
 ```
 
 ![Снимок экрана 2024-09-09 225353](https://github.com/user-attachments/assets/4727766e-ada3-49c1-9ca8-d4fffa402df9)
 
 ## Объяснение
-```#!/bin/bash
+
+```
+#!/bin/bash
 # Проверяем, был ли передан аргумент
-
 if [ $# -eq 0 ]; then
-
     echo "Использование: $0 \"Ваш текст\""
-
     exit 1
-
 fi
-
 # Получаем текст из аргумента
-
 text="$1"
-
 # Вычисляем длину текста
-
 length=${#text}
-
 # Создаем верхнюю и нижнюю границы
-
 border=$(printf "%0.s-" $(seq 1 $((length + 2))))
-
 border="+$border+"
-
 # Выводим баннер
-
 echo "$border"
-
-echo "| $text |"```
-
+echo "| $text |"
 echo "$border"
-
-## Задача 4
+```
