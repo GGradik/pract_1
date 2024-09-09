@@ -25,17 +25,19 @@ head -n 5: Выводит только первые пять строк.
 
 ## Задача 3
 
-`if [ -z "$1" ]; then`
-    `echo "Usage: $0 \"Your message here\""`
-    `exit 1`
-`fi`
+```
+if [ -z "$1" ]; then
+    echo "Usage: $0 \"Your message here\""
+    exit 1
+fi
 
-`message="$1"`
+message="$1"
 
-`length=${#message}`
+length=${#message}
 
-`border="+$(printf -- '-%.0s' $(seq 1 $((length + 2))))+"`
+border="+$(printf -- '-%.0s' $(seq 1 $((length + 2))))+"
 
-`echo "$border"
+echo "$border"
 echo "| $message |"
-echo "$border"`
+echo "$border"
+```
